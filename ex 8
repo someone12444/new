@@ -1,0 +1,22 @@
+wc=w/%pi;
+-disp(wc,'Normalized digital cut off frequency in cycles/samples');
+-[wft,wfm,fr]=wfir('hp',M+1,[wc/2,0],'re',[0,0]);
+-disp(wft,'Impulse Response of HPF FIR Filter:h[n]=');
+-// Pl o t t i n g the Magni tude Re spons e o f HPF FIR F i l t e r
+-subplot(2,1,1)
+-plot(2*fr,wfm)
+-xlabel('Normalized Digital Frequency w--->')
+-ylabel('Magni tude |H(w)|=')
+-title('Magnitude Response of FIR HPF')
+-xgrid(1)
+-subplot(2,1,2)
+-plot(fr*fs,wfm)
+-xlabel('Analog Frequency in Hz f--->')
+-ylabel ('Magnitude |H(w)|=')
+-title('Magnitude Response of FIR HPF')
+-xgrid(1)
+Results:
+
+Enter Analog cut off freq in Hz=250
+Enter Analog sampling freq in Hz=2000
+Enter order of filter =4
