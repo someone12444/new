@@ -1,0 +1,64 @@
+interpolation in Frequency Domain --
+// Program to do interpolation in the frequency domain 
+
+clf();clc;clear;close;
+
+// Input sinusoidal signal 
+
+samp_freq = 100;
+
+sig_freq = 3;
+
+interp_fac = 2; 
+
+// Time axis of the Sinusoidal Signal 
+
+time_index = 0:99;
+
+time_axis = time_index/samp_freq;
+
+inp_sig = sin(2*%pi*sig_freq*time_axis);
+
+subplot(1,2,1)
+
+plot2d3(time_axis,inp_sig );
+
+// Frequency domain interpolation using zero padding 
+
+// Transpose of the signal 
+
+inp_sig = inp_sig(:); 
+
+// Take fft of the signal 
+
+sig_fft = fft(inp_sig); 
+
+// Do zero padding in frequency domain for interpolation 
+
+sig_len = length(inp_sig);
+
+// compute how many zeros needed using the interpolation formula (N*(I-1))
+
+zeropad_len = round(sig_len*(interp_fac - 1));
+
+// middle symmetry for splitting FFT in to two halves 
+
+mid_symmetry = ceil((sig_len+1)/2);
+
+// Do zero padding here 
+
+frq_interp_sig = [sig_fft(1:mid_symmetry); zeros(zeropad_len, 1); sig_fft(mid_symmetry+1:$)];
+
+// Take inverse fourier transform 
+
+time_interp_sig = interp_fac* real(ifft(frq_interp_sig));
+
+interp_sig_len = length(time_interp_sig);
+
+// compute new time axis 
+
+new_time_axis = (0:interp_sig_len-1)/(samp_freq*interp_fac);
+
+subplot(1,2,2)
+
+plot2d3(new_time_axis, time_interp_sig)
