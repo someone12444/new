@@ -1,0 +1,50 @@
+Anti aliasing Filter --
+
+-clc ;
+-clf ;
+ -clear all;
+ -b=input('enter no of bits');
+ -n=input('enter band width in KHZ');
+ -As=20*log10(2^b*sqrt(6));
+ -Vs=(10^(0.1*As)-1)^(1/(2*n));
+ -fp=4;
+ -fs=Vs*fp;
+ -S=2*fs;
+ -fa=S-fp;
+ -Va=fa/fp;
+ -Aa =10* log10 (1+ Va ^(2* n ) )
+
+b.)Anti Imaging Filter --
+
+Program:
+-clc ;
+-clf ;
+-clear all;
+-// Anti Imaging Filter considerations
+ -Ap =0.5; // pass band attenuation
+ -fp =20; // pass band edge frequency
+ -As =60; // stop band attenuation
+-S =42.1;
+ -fs =S - fp ; // stop band edge frequency
+ -e = sqrt (10^(0.1* Ap ) -1) ;
+ -e1 = sqrt (10^(0.1* As ) -1) ;
+-n =( log10 ( e1 / e ) ) /( log10 ( fs / fp ) ) ;
+ -n = ceil ( n ) // design of nth order but worth filter
+ -// ( b ) Assuming Zero−order hold sampling
+-S1 =176.4;
+ -fs1 = S1 - fp;
+ -Ap =0.316;
+ -e2 = sqrt (10^(0.1* Ap ) -1);
+ -n1 =( log10 ( e1 / e2 ) ) /( log ( fs1 / fp ) ) ; //new o r d e r of but worth filter
+ -n1 = ceil ( n1 )
+ -f =0:100;
+ -x = abs( sinc ( f * %pi / S ) ) ;
+ -f1 =0:500;
+ -x1 =abs( sinc ( f1 * %pi / S1 ) ) ;
+ -a = gca () ;
+ -subplot (211) ;
+ -plot2d (f , x ) ;
+ -xtitle (” spectra under normal sampling condition ” ,” f (kHZ ) ” ,” s i n c ( f / s1 ) ”) ;
+ -subplot (212);
+ -plot2d ( f1,x1 );
+ -xtitle (” spectra under over sampling condition ” ,” f (kHZ ) ” ,” s i n c ( f / s1 ) ”);
