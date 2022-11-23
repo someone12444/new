@@ -9,3 +9,69 @@ clc ;
 9 title ('sine wave');
 10 xlabel ('t');
 11 ylabel (’ x’);
+
+Scilab code: Triangular wave 
+1 clc ; 
+2 clf ; 
+3 clear all; 
+4 // Caption: Generation of Triangular wave
+5 a =8; 
+6 t =0:( %pi /4) :(4* %pi ) ; 
+7 y = a *sin (2* t ) ; 
+8 a = gca () ; 
+9 a . x_location =” mi d dl e ” 
+10 plot (t ,y ) ; 
+11 title ( ’ t r i a n g u l a r wave ’ ) ; 
+
+1 clc ; 
+2 clf ; 
+3 clear all; 
+4 // Caption: Generation of Exponential wave
+5 t = -2:0.1:2; 
+6 x = exp (t ) ; 
+7 plot (t ,x ) ; 
+8 title ( ’ e x p o n e n t i a l wave ’ ) ; 
+9 xlabel ( ’ t ’ ) ; 
+10 ylabel ( ’ x ’ ) ;
+
+Scilab code: Unit impulse signal 
+1 clc ; 
+2 clf ; 
+3 clear all; 
+4 // u n i t I m p u l s e 
+5 L =5; 
+6 n = - L : L; 
+7 x =[ zeros (1 , L ) ,ones (1 ,1) ,zeros (1 , L ) ]; 
+8 a = gca () ; 
+9 a . y_location =” mi d dl e ” 
+10 plot2d3 (n ,x ) ; 
+11 title ( ’ u n i t I m p u l s e ’ ) ;
+
+Scilab code: Unit step signal 
+1 clc ;
+ 2 clf ; 
+3 clear all; 
+4 L =5; 
+5 n = - L : L; 
+6 x =[ zeros (1 , L ) ,ones (1 , L +1) ]; 
+7 a = gca () ; 
+8 a . y_location =” mi d dl e ”; 
+9 plot2d3 (n ,x ) ; 
+10 title ( ’ u n i t s t e p ’ ) ; 
+11 xlabel ( ’ n ’ ) ; 
+12 ylabel ( ’ x ’ ) ;
+
+Scilab code: Unit ramp signal 
+1 // u n i t ramp 
+2 clc ; 
+3 clf ; 
+4 clear all; 
+5 L =5; 
+6 n = - L : L; 
+7 x =[ zeros (1 , L ) ,0: L ]; 
+8 a = gca () ; 
+9 a . y_location = ’ mi d dl e ’ ; 
+10 plot2d3 (n ,x ) ; 
+11 xtitle ( ’ u n i t ramp s i g n a l ’ ) ; 
+12 xlabel ( ’−−−>n ’ ) ; 
+13 ylabel ( ’−−−>x ( n ) ’ ) ;
