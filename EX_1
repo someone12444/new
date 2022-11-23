@@ -1,1 +1,11 @@
-
+clc ;
+2 clf;
+3 clear all;
+4 // Caption: Generation of sine wave
+5 f =0.2;
+6 t=0:0.1:10;
+7 x = sin (2* %pi *t*f);
+8 plot (t, x);
+9 title ('sine wave');
+10 xlabel ('t');
+11 ylabel (’ x’);
