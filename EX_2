@@ -1,1 +1,54 @@
+// GENERATION OF CONTINUOUS TIME SIGNAL AND DISCRETE TIME SIGNAL
+clear ;
+clc ;
+close ;
+t =0:0.01:2; 
+x1 =sin (7* t ) +sin (10* t ) ;
+subplot (1 ,2 ,1) ; 
+plot (t , x1 ) ; 
+xlabel ( 't' ) ; 
+ylabel ( 'x(t)') ; 
+title ( 'CONTINUOUS TIME SIGNAL'); 
+n =0:0.2:2; 
+x2 =sin (7* n ) +sin (10* n ) ; 
+subplot (1 ,2 ,2) ; 
+plot2d3 (n , x2 ) ; 
+xlabel ( 'n') ; 
+ylabel ( 'x(n)') ; 
+title ( 'DISCRETE TIME SIGNAL' ) ;
 
+// PROGRAM FOR SAMPLING 
+// CONVERSION OF ANALOG SIGNAL TO DISCRETE SIGNAL 
+clc ;
+clf ;
+clear all; 
+t =0:0.01:100;
+fm =0.02; 
+x = cos (2* %pi * fm * t ); 
+subplot (2 ,2 ,1) ; 
+plot (t ,x ) ; 
+title ( 'CONTINUOUS TIME SIGNAL' ) ;
+xlabel('time');
+ylabel('Amplitude'); 
+fs1 =0.002; 
+n =0:1:150; 
+x1 =cos (2* %pi * fm * n / fs1 ) ;
+subplot (2 ,2 ,2) ; 
+plot2d3 (n , x1 ) ; 
+title ( 'DISCRETE TIME SIGNAL, fs1');
+xlabel('time')
+ylabel('Amplitude')
+fs2 =0.04;
+x2 =cos (2* %pi * fm * n / fs2 ) ; 
+subplot (2 ,2 ,3) ; 
+plot2d3 (n , x2 ) ; 
+title ( 'DISCRETE TIME SIGNAL,fs2=2fm' ) ; 
+xlabel('time')
+ylabel('Amplitude')
+fs3 =0.4; 
+x3 =cos (2* %pi * fm * n / fs3 ) ; 
+subplot (2 ,2 ,4) ;
+plot2d3 (n , x3 ) ; 
+title ( 'DISCRETE TIME SIGNAL, fs3>2fm' ) ;
+xlabel('time')
+ylabel('Amplitude')
