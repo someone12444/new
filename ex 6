@@ -1,0 +1,46 @@
+6.)DFT and IDFT using FFT 
+Program:
+-// program for calculation of FFT of a signal
+-clc ;
+-clf ;
+-clear all;
+-N = input('Enter the value of N');
+-x = input ('enter input sequence');
+-y = fft(x);
+-A = real(y);
+-B = imag(y);
+-mag = abs(y);
+-x1 = atan(imag(y),real(y));
+-phase = x1 *(180/ %pi ) ;
+-disp ('the resultant FFT sequence is ' ) ;
+-disp (y);
+-disp ('the magnitude response is ') ;
+-disp ( mag ) ;
+-disp ('the phase response is') ;
+-disp (phase) ;
+-z = ifft ( y ) ;
+-disp ('the resultant IFFT sequence is') ;
+-disp ( z );
+-subplot (3 ,2 ,1) ;
+-plot2d3 ( x );
+-title ( 'input sequence') ;
+-subplot (3 ,2 ,2) ;
+-plot2d3 ( A );
+-title ( 'FFT real sequence ' ) ;
+-subplot (3 ,2 ,3) ;
+-plot2d3 ( B );
+-title ('FFT imaginary sequence ' ) ;
+-subplot (3 ,2 ,4) ;
+-plot2d3 ( mag ) ;
+-title ( 'magnitude response ' ) ;
+-subplot (3 ,2 ,5) ;
+-plot2d3 ( phase ) ;
+-title ( 'phase response ') ;
+-subplot (3 ,2 ,6) ;
+-plot2d3 ( x );
+-title ( 'IFFT sequence ' ) ;
+
+Results:
+Enter the value of N 8
+
+enter input sequence [1 2 3 4 5 6 7 8]
